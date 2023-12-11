@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.box {
+				display: inline-block;
+				width: 100px;
+				height: 100px;
+				background: red;
+				color: white;
+			}
+            #container{
+                position:relative;
+                width:220px;
+                height:300px;
+                overflow: scroll;
+            }
+            /* container的position设置为static或者不被设置，那么two这个box就会相对于body定位，否则他会相对于container定位 */
+
+			#five {
+				position: absolute;
+				top: 20px;
+				left: 40px;
+				background: blue;
+			}
+            #three {
+				position: relative;
+				top: 20px;
+				left: 20px;
+				background: rgba(255, 200, 0, 0.76);
+			}
+            /* relative会先按照文档流进行正常放置，然后再调整位置，不影响其他元素 */
+            #four {
+				position: fixed;
+				top: 20px;
+				left: 20px;
+				background: rgba(47, 255, 0, 0.76);
+			}
+            /* relative会先按照文档流进行正常放置，然后再调整位置，不影响其他元素 */
+            #two {
+				position: sticky;
+				top: 50px;
+				left: 30px;
+				background: rgba(230, 0, 255, 0.76);
+			}
+            /* sticky可以被认为是relative和fix的混合。元素在跨越特定阈值前为relative,此例子中是看元素距离父元素的顶部是否有50px，距离小于50px后为fixed。 */
+		</style>
+	</head>
+	<body>
+        <div>这是一段话</body>
+		<div id="container">
+			<div class="box" id="one">One</div>
+			<div class="box" id="two">Two</div>
+			<div class="box" id="three">Three</div>
+			<div class="box" id="four">Four</div>
+            <div class="box" id="five">Five</div>
+			<div class="box" id="six">Six</div>
+		</div>
+	</body>
+</html>
